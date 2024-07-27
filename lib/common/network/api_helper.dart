@@ -7,7 +7,12 @@ import 'dio_exception.dart';
 abstract mixin class ApiHelper<T> {
   late final T data;
 
+<<<<<<< HEAD
   Future<bool> _requestMethodTemplate(Future<Response<dynamic>> apiCallback) async {
+=======
+  Future<bool> _requestMethodTemplate(
+      Future<Response<dynamic>> apiCallback) async {
+>>>>>>> upstream/main
     final Response response = await apiCallback;
     if (response.statusCode.success) {
       return true;

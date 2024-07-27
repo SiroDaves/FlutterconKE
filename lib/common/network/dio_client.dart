@@ -17,4 +17,8 @@ class DioClient {
       ..options.responseType = ResponseType.json
       ..interceptors.add(DioInterceptor());
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> upstream/main
