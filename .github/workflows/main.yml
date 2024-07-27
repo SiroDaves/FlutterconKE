@@ -33,7 +33,7 @@ jobs:
         run: flutter analyze
 
       - name: Build APK
-        run: flutter build apk --release  # Include --release for release mode
+        run: flutter build apk --flavor uat -t lib/main_uat.dart --dart-define-from-file keys.dev.json --no-tree-shake-icons # Include --release for release mode
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v3
