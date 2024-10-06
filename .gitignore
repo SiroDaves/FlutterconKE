@@ -51,3 +51,5 @@ app.*.map.json
 .fvm/
 .fvmrc
 .vscode/settings.json
+devtools_options.yaml
+lib/versioning/build_version.dart
