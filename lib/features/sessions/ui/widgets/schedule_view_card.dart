@@ -52,10 +52,7 @@ class ScheduleViewCard extends StatelessWidget {
                 errorWidget: (_, __, ___) => const SizedBox(
                   height: 150,
                   width: double.infinity,
-                  child: Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  ),
+                  child: Icon(Icons.error, color: Colors.red),
                 ),
               ),
             ),
@@ -66,15 +63,10 @@ class ScheduleViewCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: AutoSizeText(
                     l10n.sessionTimeAndVenue(
-                      DateFormat.Hm().format(
-                        session.startDateTime,
-                      ),
+                      DateFormat.Hm().format(session.startDateTime),
                       session.rooms.map((room) => room.title).join(', '),
                     ),
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                    ),
+                    style: const TextStyle(color: Colors.grey, fontSize: 14),
                   ),
                 ),
               ],
@@ -94,7 +86,8 @@ class ScheduleViewCard extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16) +
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16) +
                   const EdgeInsets.only(bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,10 +126,7 @@ class ScheduleViewCard extends StatelessWidget {
                                   errorWidget: (_, __, ___) => const SizedBox(
                                     height: 150,
                                     width: double.infinity,
-                                    child: Icon(
-                                      Icons.error,
-                                      color: Colors.red,
-                                    ),
+                                    child: Icon(Icons.error, color: Colors.red),
                                   ),
                                 ),
                               ),
@@ -150,9 +140,7 @@ class ScheduleViewCard extends StatelessWidget {
                       state.mapOrNull(
                         loaded: (loaded) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: AutoSizeText(loaded.message),
-                            ),
+                            SnackBar(content: AutoSizeText(loaded.message)),
                           );
                         },
                       );
@@ -183,12 +171,12 @@ class ScheduleViewCard extends StatelessWidget {
                               .read<BookmarkSessionCubit>()
                               .bookmarkSession(sessionId: session.serverId)
                               .then((_) {
-                            if (context.mounted) {
-                              context
-                                  .read<FetchGroupedSessionsCubit>()
-                                  .fetchGroupedSessions();
-                            }
-                          }),
+                                if (context.mounted) {
+                                  context
+                                      .read<FetchGroupedSessionsCubit>()
+                                      .fetchGroupedSessions();
+                                }
+                              }),
                           icon: Icon(
                             session.isBookmarked
                                 ? Icons.star_rate_rounded

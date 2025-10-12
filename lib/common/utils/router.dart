@@ -60,16 +60,14 @@ class FlutterConRouter {
       GoRoute(
         path: sessionDetailsRoute,
         name: sessionDetailsRoute,
-        builder: (context, state) => SessionDetailsPage(
-          session: state.extra! as LocalSession,
-        ),
+        builder: (context, state) =>
+            SessionDetailsPage(session: state.extra! as LocalSession),
       ),
       GoRoute(
         path: speakerDetailsRoute,
         name: speakerDetailsRoute,
-        builder: (context, state) => SpeakerDetailsPage(
-          speaker: state.extra! as LocalSpeaker,
-        ),
+        builder: (context, state) =>
+            SpeakerDetailsPage(speaker: state.extra! as LocalSpeaker),
       ),
       GoRoute(
         path: organiserDetailsRoute,
@@ -81,9 +79,8 @@ class FlutterConRouter {
       GoRoute(
         path: feedbackRoute,
         name: feedbackRoute,
-        builder: (context, state) => FeedbackScreen(
-          sessionSlug: state.extra as String?,
-        ),
+        builder: (context, state) =>
+            FeedbackScreen(sessionSlug: state.extra as String?),
       ),
     ],
   );

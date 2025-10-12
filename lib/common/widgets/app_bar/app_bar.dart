@@ -99,9 +99,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 const SizedBox(width: 8),
                                 AutoSizeText(
                                   l10n.filter,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge
+                                  style: Theme.of(context).textTheme.titleLarge
                                       ?.copyWith(
                                         fontWeight: FontWeight.bold,
                                         color: colorScheme.primary,
@@ -137,9 +135,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       AutoSizeText(
                         l10n.filter,
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
                       ),
                       const SizedBox(width: 8),
                       SvgPicture.asset(

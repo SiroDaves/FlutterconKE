@@ -4,10 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logger/logger.dart';
 
 class ResolvedImage extends StatelessWidget {
-  const ResolvedImage({
-    required this.imageUrl,
-    super.key,
-  });
+  const ResolvedImage({required this.imageUrl, super.key});
 
   final String imageUrl;
 
@@ -29,10 +26,7 @@ class ResolvedImage extends StatelessWidget {
             errorWidget: (_, __, ___) => const SizedBox(
               height: 150,
               width: double.infinity,
-              child: Icon(
-                Icons.error,
-                color: Colors.red,
-              ),
+              child: Icon(Icons.error, color: Colors.red),
             ),
           );
   }

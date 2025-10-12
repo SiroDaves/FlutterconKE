@@ -36,32 +36,36 @@ class _SpeakerCardState extends State<SpeakerCard> {
             AutoSizeText(
               l10n.speakers,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: isLightMode
-                        ? ThemeColors.blueDroidconColor
-                        : colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: isLightMode
+                    ? ThemeColors.blueDroidconColor
+                    : colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const Spacer(),
             TextButton.icon(
               label: AutoSizeText(
                 l10n.viewAll,
                 style: TextStyle(
-                  color:
-                      isLightMode ? colorScheme.primary : colorScheme.onSurface,
+                  color: isLightMode
+                      ? colorScheme.primary
+                      : colorScheme.onSurface,
                 ),
               ),
               iconAlignment: IconAlignment.end,
               icon: Container(
                 decoration: BoxDecoration(
-                  color: (isLightMode
-                          ? ThemeColors.blueColor
-                          : ThemeColors.lightGrayColor)
-                      .withOpacity(.11),
+                  color:
+                      (isLightMode
+                              ? ThemeColors.blueColor
+                              : ThemeColors.lightGrayColor)
+                          .withValues(alpha: .11),
                   borderRadius: BorderRadius.circular(50),
                 ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 2,
+                ),
                 child: BlocBuilder<FetchSpeakersCubit, FetchSpeakersState>(
                   builder: (context, state) => state.maybeWhen(
                     loaded: (_, extras) => AutoSizeText(
@@ -117,14 +121,12 @@ class _SpeakerCardState extends State<SpeakerCard> {
             error: (message) => AutoSizeText(
               message,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: ThemeColors.blueColor,
-                    fontSize: 18,
-                  ),
+                fontWeight: FontWeight.bold,
+                color: ThemeColors.blueColor,
+                fontSize: 18,
+              ),
             ),
-            orElse: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+            orElse: () => const Center(child: CircularProgressIndicator()),
           ),
         ),
       ],

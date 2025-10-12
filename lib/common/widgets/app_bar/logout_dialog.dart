@@ -21,7 +21,8 @@ class _LogOutDialogState extends State<LogOutDialog> {
     final (isLightMode, colorScheme) = Misc.getTheme(context);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16) +
+      padding:
+          const EdgeInsets.symmetric(horizontal: 16) +
           const EdgeInsets.only(bottom: 16),
       child: BlocListener<LogOutCubit, LogOutState>(
         listener: (context, state) {
@@ -39,18 +40,18 @@ class _LogOutDialogState extends State<LogOutDialog> {
             AutoSizeText(
               l10n.areYouSureLogOut,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             AutoSizeText(
               l10n.logoutDesc,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -70,19 +71,19 @@ class _LogOutDialogState extends State<LogOutDialog> {
                     return state.maybeWhen(
                       loading: () => AutoSizeText(
                         l10n.logoutLoading.toUpperCase(),
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                       orElse: () => AutoSizeText(
                         l10n.confirmLogout.toUpperCase(),
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     );
                   },
@@ -105,9 +106,9 @@ class _LogOutDialogState extends State<LogOutDialog> {
                 child: AutoSizeText(
                   l10n.cancel.toUpperCase(),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: colorScheme.onSurface,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    color: colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

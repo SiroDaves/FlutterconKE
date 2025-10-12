@@ -11,10 +11,7 @@ import 'package:fluttercon/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class OranisingTeamMemberDetailsPage extends StatelessWidget {
-  const OranisingTeamMemberDetailsPage({
-    required this.organiser,
-    super.key,
-  });
+  const OranisingTeamMemberDetailsPage({required this.organiser, super.key});
 
   final LocalIndividualOrganiser organiser;
 
@@ -73,10 +70,7 @@ class OranisingTeamMemberDetailsPage extends StatelessWidget {
                           errorWidget: (_, __, ___) => const SizedBox(
                             height: 150,
                             width: double.infinity,
-                            child: Icon(
-                              Icons.error,
-                              color: Colors.red,
-                            ),
+                            child: Icon(Icons.error, color: Colors.red),
                           ),
                         ),
                       ),
@@ -94,9 +88,7 @@ class OranisingTeamMemberDetailsPage extends StatelessWidget {
               const SizedBox(height: 60),
               AutoSizeText(
                 organiser.designation,
-                style: const TextStyle(
-                  color: ThemeColors.orangeColor,
-                ),
+                style: const TextStyle(color: ThemeColors.orangeColor),
               ),
               AutoSizeText(
                 organiser.name,
@@ -110,10 +102,7 @@ class OranisingTeamMemberDetailsPage extends StatelessWidget {
               AutoSizeText(
                 organiser.tagline,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 32),
               Align(
@@ -141,7 +130,7 @@ class OranisingTeamMemberDetailsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              Divider(color: Colors.grey.withOpacity(.5)),
+              Divider(color: Colors.grey.withValues(alpha: .5)),
               const SizedBox(height: 32),
               SocialHandleBody(
                 name: organiser.name,

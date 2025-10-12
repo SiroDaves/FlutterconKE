@@ -73,22 +73,25 @@ class _SessionsScreenState extends State<SessionsScreen>
                             tabAlignment: TabAlignment.start,
                             indicatorColor: Colors.transparent,
                             dividerColor: Colors.transparent,
-                            overlayColor:
-                                WidgetStateProperty.all(Colors.transparent),
+                            overlayColor: WidgetStateProperty.all(
+                              Colors.transparent,
+                            ),
                             tabs: [
                               ...groupedSessions.keys.map(
                                 (date) => DayTabView(
                                   date: DateFormat.d().format(
                                     DateFormat('MM/dd/yyyy').parse(date),
                                   ),
-                                  day: groupedSessions.keys
-                                          .toList()
-                                          .indexOf(date) +
+                                  day:
+                                      groupedSessions.keys.toList().indexOf(
+                                        date,
+                                      ) +
                                       1,
-                                  isActive: _currentTab ==
-                                      groupedSessions.keys
-                                          .toList()
-                                          .indexOf(date),
+                                  isActive:
+                                      _currentTab ==
+                                      groupedSessions.keys.toList().indexOf(
+                                        date,
+                                      ),
                                 ),
                               ),
                             ],
@@ -123,12 +126,14 @@ class _SessionsScreenState extends State<SessionsScreen>
                                     }
                                   },
                                   trackOutlineWidth: WidgetStateProperty.all(1),
-                                  trackColor:
-                                      WidgetStateProperty.all(Colors.black),
+                                  trackColor: WidgetStateProperty.all(
+                                    Colors.black,
+                                  ),
                                   activeTrackColor: ThemeColors.orangeColor,
-                                  activeColor: ThemeColors.orangeColor,
-                                  thumbColor:
-                                      WidgetStateProperty.all(Colors.white),
+                                  activeThumbColor: ThemeColors.orangeColor,
+                                  thumbColor: WidgetStateProperty.all(
+                                    Colors.white,
+                                  ),
                                   thumbIcon: WidgetStateProperty.all(
                                     const Icon(Icons.star_border_rounded),
                                   ),

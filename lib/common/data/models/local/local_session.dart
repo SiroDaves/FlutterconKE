@@ -1,4 +1,4 @@
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 
 part 'local_session.g.dart';
 
@@ -73,10 +73,7 @@ class EmbeddedSpeaker {
 
 @embedded
 class LocalRoom {
-  LocalRoom({
-    this.title,
-    this.id,
-  });
+  LocalRoom({this.title, this.id});
 
   int? id;
   String? title;

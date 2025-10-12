@@ -28,7 +28,7 @@ class DayTabView extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: isActive
               ? ThemeColors.orangeDroidconColor
-              : ThemeColors.blueGreenDroidconColor.withOpacity(.1),
+              : ThemeColors.blueGreenDroidconColor.withValues(alpha: .1),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         child: Column(
@@ -41,8 +41,8 @@ class DayTabView extends StatelessWidget {
                 color: isActive
                     ? Colors.white
                     : isLightMode
-                        ? Colors.black
-                        : Colors.white,
+                    ? Colors.black
+                    : Colors.white,
               ),
             ),
             const SizedBox(height: 4),
@@ -53,8 +53,8 @@ class DayTabView extends StatelessWidget {
                 color: isActive
                     ? Colors.white
                     : isLightMode
-                        ? Colors.black
-                        : Colors.white,
+                    ? Colors.black
+                    : Colors.white,
               ),
             ),
           ],

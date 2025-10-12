@@ -11,10 +11,7 @@ import 'package:fluttercon/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class SpeakerDetailsPage extends StatelessWidget {
-  const SpeakerDetailsPage({
-    required this.speaker,
-    super.key,
-  });
+  const SpeakerDetailsPage({required this.speaker, super.key});
 
   final LocalSpeaker speaker;
 
@@ -72,10 +69,7 @@ class SpeakerDetailsPage extends StatelessWidget {
                           errorWidget: (_, __, ___) => const SizedBox(
                             height: 150,
                             width: double.infinity,
-                            child: Icon(
-                              Icons.error,
-                              color: Colors.red,
-                            ),
+                            child: Icon(Icons.error, color: Colors.red),
                           ),
                         ),
                       ),
@@ -103,9 +97,7 @@ class SpeakerDetailsPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   AutoSizeText(
                     l10n.speaker,
-                    style: const TextStyle(
-                      color: ThemeColors.orangeColor,
-                    ),
+                    style: const TextStyle(color: ThemeColors.orangeColor),
                   ),
                 ],
               ),
@@ -121,10 +113,7 @@ class SpeakerDetailsPage extends StatelessWidget {
               AutoSizeText(
                 speaker.tagline ?? '',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 32),
               Align(
@@ -152,7 +141,7 @@ class SpeakerDetailsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              Divider(color: Colors.grey.withOpacity(.5)),
+              Divider(color: Colors.grey.withValues(alpha: .5)),
               const SizedBox(height: 32),
               if (speaker.twitter != null)
                 SocialHandleBody(

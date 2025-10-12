@@ -11,10 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class SessionsCard extends StatefulWidget {
-  const SessionsCard({
-    super.key,
-    this.switchTab,
-  });
+  const SessionsCard({super.key, this.switchTab});
 
   final void Function()? switchTab;
   @override
@@ -42,11 +39,11 @@ class _SessionsCardState extends State<SessionsCard> {
             AutoSizeText(
               l10n.sessions,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: isLightMode
-                        ? colorScheme.primary
-                        : colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: isLightMode
+                    ? colorScheme.primary
+                    : colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const Spacer(),
             TextButton(
@@ -64,14 +61,17 @@ class _SessionsCardState extends State<SessionsCard> {
                   const SizedBox(width: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: (isLightMode
-                              ? ThemeColors.blueColor
-                              : ThemeColors.lightGrayColor)
-                          .withOpacity(.11),
+                      color:
+                          (isLightMode
+                                  ? ThemeColors.blueColor
+                                  : ThemeColors.lightGrayColor)
+                              .withValues(alpha: .11),
                       borderRadius: BorderRadius.circular(50),
                     ),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 2,
+                    ),
                     child: BlocBuilder<FetchSessionsCubit, FetchSessionsState>(
                       builder: (context, state) => state.maybeWhen(
                         loaded: (_, extras) => AutoSizeText(
@@ -87,9 +87,7 @@ class _SessionsCardState extends State<SessionsCard> {
                           width: 16,
                           child: Padding(
                             padding: EdgeInsets.all(2),
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ),
+                            child: CircularProgressIndicator(strokeWidth: 2),
                           ),
                         ),
                       ),
@@ -137,16 +135,14 @@ class _SessionsCardState extends State<SessionsCard> {
                               placeholder: (_, __) => const SizedBox(
                                 height: 150,
                                 width: double.infinity,
-                                child:
-                                    Center(child: CircularProgressIndicator()),
+                                child: Center(
+                                  child: CircularProgressIndicator(),
+                                ),
                               ),
                               errorWidget: (_, __, ___) => const SizedBox(
                                 height: 150,
                                 width: double.infinity,
-                                child: Icon(
-                                  Icons.error,
-                                  color: Colors.red,
-                                ),
+                                child: Icon(Icons.error, color: Colors.red),
                               ),
                             ),
                           ),
@@ -168,9 +164,7 @@ class _SessionsCardState extends State<SessionsCard> {
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: AutoSizeText(
                               l10n.sessionTimeAndVenue(
-                                DateFormat.Hm().format(
-                                  session.startDateTime,
-                                ),
+                                DateFormat.Hm().format(session.startDateTime),
                                 session.rooms
                                     .map((room) => room.title)
                                     .join(', '),

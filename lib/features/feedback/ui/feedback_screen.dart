@@ -10,10 +10,7 @@ import 'package:fluttercon/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class FeedbackScreen extends StatefulWidget {
-  const FeedbackScreen({
-    super.key,
-    this.sessionSlug,
-  });
+  const FeedbackScreen({super.key, this.sessionSlug});
 
   final String? sessionSlug;
 
@@ -47,19 +44,17 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               child: AutoSizeText(
                 l10n.yourFeedback,
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      color: colorScheme.primary,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w900,
-                    ),
+                  color: colorScheme.primary,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ),
             const SizedBox(height: 20),
             Center(
               child: AutoSizeText(
                 l10n.howWasFluttercon,
-                style: TextStyle(
-                  color: colorScheme.onSurface,
-                ),
+                style: TextStyle(color: colorScheme.onSurface),
               ),
             ),
             const SizedBox(height: 20),
@@ -113,9 +108,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         fontSize: 14,
                       ),
                     ),
-                    style: TextStyle(
-                      color: colorScheme.onSurface,
-                    ),
+                    style: TextStyle(color: colorScheme.onSurface),
                     maxLines: 5,
                   ),
                   const SizedBox(height: 10),
@@ -144,8 +137,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: colorScheme.primary,
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 32),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),

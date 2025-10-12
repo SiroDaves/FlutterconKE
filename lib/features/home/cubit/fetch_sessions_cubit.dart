@@ -20,9 +20,7 @@ class FetchSessionsCubit extends Cubit<FetchSessionsState> {
   late ApiRepository _apiRepository;
   late DBRepository _databaseRepository;
 
-  Future<void> fetchSessions({
-    bool forceRefresh = false,
-  }) async {
+  Future<void> fetchSessions({bool forceRefresh = false}) async {
     emit(const FetchSessionsState.loading());
 
     try {

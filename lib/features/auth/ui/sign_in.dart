@@ -25,11 +25,9 @@ class SignInScreen extends StatelessWidget {
           loaded: (token) =>
               context.read<SocialAuthSignInCubit>().socialSignIn(token: token),
           error: (message) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: AutoSizeText(message),
-              ),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: AutoSizeText(message)));
           },
         );
       },
@@ -40,9 +38,9 @@ class SignInScreen extends StatelessWidget {
             loaded: () =>
                 GoRouter.of(context).goNamed(FlutterConRouter.decisionRoute),
             error: (message) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: AutoSizeText(message)),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: AutoSizeText(message)));
             },
           );
         },
@@ -68,8 +66,9 @@ class SignInScreen extends StatelessWidget {
                         listener: (context, state) {
                           state.maybeWhen(
                             orElse: () {},
-                            loaded: () => GoRouter.of(context)
-                                .goNamed(FlutterConRouter.decisionRoute),
+                            loaded: () => GoRouter.of(
+                              context,
+                            ).goNamed(FlutterConRouter.decisionRoute),
                             error: (message) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: AutoSizeText(message)),
@@ -95,8 +94,9 @@ class SignInScreen extends StatelessWidget {
                         return state.maybeWhen(
                           loading: () => const CircularProgressIndicator(),
                           orElse: () => GoogleAuthButton(
-                            themeMode:
-                                isLightMode ? ThemeMode.light : ThemeMode.dark,
+                            themeMode: isLightMode
+                                ? ThemeMode.light
+                                : ThemeMode.dark,
                             onPressed: () async => context
                                 .read<GoogleSignInCubit>()
                                 .signInWithGoogle(),

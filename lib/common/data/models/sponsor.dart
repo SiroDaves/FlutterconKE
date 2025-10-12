@@ -5,7 +5,7 @@ part 'sponsor.freezed.dart';
 part 'sponsor.g.dart';
 
 @freezed
-class Sponsor with _$Sponsor {
+abstract class Sponsor with _$Sponsor {
   factory Sponsor(
     String name,
     String tagline,
@@ -20,10 +20,8 @@ class Sponsor with _$Sponsor {
 }
 
 @freezed
-class SponsorResponse with _$SponsorResponse {
-  factory SponsorResponse(
-    List<Sponsor> data,
-  ) = _SponsorResponse;
+abstract class SponsorResponse with _$SponsorResponse {
+  factory SponsorResponse(List<Sponsor> data) = _SponsorResponse;
 
   factory SponsorResponse.fromJson(Map<String, dynamic> json) =>
       _$SponsorResponseFromJson(json);

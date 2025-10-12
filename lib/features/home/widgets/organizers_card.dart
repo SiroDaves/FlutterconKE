@@ -78,10 +78,10 @@ class _OrganizersCardState extends State<OrganizersCard> {
               error: (message) => AutoSizeText(
                 message,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.primary,
-                      fontSize: 18,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme.primary,
+                  fontSize: 18,
+                ),
               ),
               orElse: () => const Center(child: CircularProgressIndicator()),
             ),

@@ -55,8 +55,8 @@ class NetworkUtil {
       );
     }
 
-    (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient =
-        () => HttpClient()..badCertificateCallback = (_, __, ___) => true;
+    (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () =>
+        HttpClient()..badCertificateCallback = (_, __, ___) => true;
     return dio;
   }
 
@@ -88,9 +88,7 @@ class NetworkUtil {
         ..i('Error: ${err.response?.data}');
 
       if (err.response?.statusCode == 401) {
-        throw Failure(
-          message: 'Session timeout',
-        );
+        throw Failure(message: 'Session timeout');
       }
 
       if (err.response?.statusCode == 404) {

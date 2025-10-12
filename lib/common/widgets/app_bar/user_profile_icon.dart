@@ -10,7 +10,7 @@ import 'package:fluttercon/core/di/injectable.dart';
 import 'package:fluttercon/core/theme/theme_colors.dart';
 import 'package:fluttercon/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class UserProfileIcon extends StatefulWidget {
@@ -69,9 +69,9 @@ class _UserProfileIconState extends State<UserProfileIcon> {
           color: ThemeColors.tealColor,
         ),
         child: ValueListenableBuilder<Object>(
-          valueListenable:
-              Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-                  .listenable(),
+          valueListenable: Hive.box<dynamic>(
+            FlutterConConfig.instance!.values.hiveBox,
+          ).listenable(),
           builder: (context, _, __) {
             final profile = getIt<HiveRepository>().retrieveUser();
             if (profile != null) {
@@ -88,18 +88,12 @@ class _UserProfileIconState extends State<UserProfileIcon> {
                   errorWidget: (_, __, ___) => const SizedBox(
                     height: 150,
                     width: double.infinity,
-                    child: Icon(
-                      Icons.error,
-                      color: Colors.red,
-                    ),
+                    child: Icon(Icons.error, color: Colors.red),
                   ),
                 ),
               );
             }
-            return const Icon(
-              Icons.person,
-              color: Colors.white,
-            );
+            return const Icon(Icons.person, color: Colors.white);
           },
         ),
       ),

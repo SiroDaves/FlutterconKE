@@ -66,9 +66,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
         // Register all the BLoCs here
         providers: [
           BlocProvider<GoogleSignInCubit>(
-            create: (_) => GoogleSignInCubit(
-              authRepository: getIt(),
-            ),
+            create: (_) => GoogleSignInCubit(authRepository: getIt()),
           ),
           BlocProvider(
             create: (_) => FetchOrganisersCubit(
@@ -90,10 +88,8 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
             ),
           ),
           BlocProvider<FetchFeedCubit>(
-            create: (_) => FetchFeedCubit(
-              apiRepository: getIt(),
-              dBRepository: getIt(),
-            ),
+            create: (_) =>
+                FetchFeedCubit(apiRepository: getIt(), dBRepository: getIt()),
           ),
           BlocProvider<FetchSponsorsCubit>(
             create: (context) => FetchSponsorsCubit(
@@ -134,14 +130,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
             ),
           ),
           BlocProvider<ShareFeedPostCubit>(
-            create: (context) => ShareFeedPostCubit(
-              shareRepository: getIt(),
-            ),
+            create: (context) => ShareFeedPostCubit(shareRepository: getIt()),
           ),
           BlocProvider<SendFeedbackCubit>(
-            create: (context) => SendFeedbackCubit(
-              apiRepository: getIt(),
-            ),
+            create: (context) => SendFeedbackCubit(apiRepository: getIt()),
           ),
           BlocProvider<GhostSignInCubit>(
             create: (context) => GhostSignInCubit(
@@ -150,9 +142,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
             ),
           ),
           BlocProvider<SearchCubit>(
-            create: (context) => SearchCubit(
-              dbRepository: getIt(),
-            ),
+            create: (context) => SearchCubit(dbRepository: getIt()),
           ),
         ],
         child: await builder(),

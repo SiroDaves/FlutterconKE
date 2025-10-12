@@ -87,10 +87,7 @@ class _FeedScreenState extends State<FeedScreen> {
                                 errorWidget: (_, __, ___) => const SizedBox(
                                   height: 100,
                                   width: double.infinity,
-                                  child: Icon(
-                                    Icons.error,
-                                    color: Colors.red,
-                                  ),
+                                  child: Icon(Icons.error, color: Colors.red),
                                 ),
                               ),
                             ),
@@ -110,12 +107,12 @@ class _FeedScreenState extends State<FeedScreen> {
                                           hasTopBarLayer: false,
                                           backgroundColor: isLightMode
                                               ? ThemeColors
-                                                  .lightGrayBackgroundColor
+                                                    .lightGrayBackgroundColor
                                               : Colors.black,
                                           mainContentSliversBuilder:
                                               (context) => <Widget>[
-                                            ShareSheet(feed: feed),
-                                          ],
+                                                ShareSheet(feed: feed),
+                                              ],
                                         ),
                                       ],
                                     );
@@ -164,10 +161,10 @@ class _FeedScreenState extends State<FeedScreen> {
             error: (message) => AutoSizeText(
               message,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: colorScheme.primary,
-                    fontSize: 18,
-                  ),
+                fontWeight: FontWeight.bold,
+                color: colorScheme.primary,
+                fontSize: 18,
+              ),
             ),
             orElse: () => Center(
               child: CircularProgressIndicator(

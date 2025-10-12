@@ -51,9 +51,7 @@ class _SponsorsCardState extends State<SponsorsCard> {
             builder: (context, state) => state.maybeWhen(
               loaded: (sponsors) {
                 final nonPlatinumSponsors = sponsors
-                    .where(
-                      (sponsor) => sponsor.sponsorType != SponsorType.gold,
-                    )
+                    .where((sponsor) => sponsor.sponsorType != SponsorType.gold)
                     .toList();
                 return Column(
                   children: [
@@ -117,14 +115,12 @@ class _SponsorsCardState extends State<SponsorsCard> {
               error: (message) => AutoSizeText(
                 message,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.primary,
-                      fontSize: 18,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme.primary,
+                  fontSize: 18,
+                ),
               ),
-              orElse: () => const Center(
-                child: CircularProgressIndicator(),
-              ),
+              orElse: () => const Center(child: CircularProgressIndicator()),
             ),
           ),
         ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttercon/common/data/models/adapters.dart';
 import 'package:fluttercon/common/data/models/models.dart';
 import 'package:fluttercon/common/utils/env/flavor_config.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
@@ -16,12 +16,9 @@ class HiveRepository {
   }
 
   void clearPrefs() {
-    Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .deleteAll(<String>[
-      'accessToken',
-      'profile',
-      'sessions',
-    ]);
+    Hive.box<dynamic>(
+      FlutterConConfig.instance!.values.hiveBox,
+    ).deleteAll(<String>['accessToken', 'profile', 'sessions']);
   }
 
   void clearBox() {
@@ -29,34 +26,43 @@ class HiveRepository {
   }
 
   void persistToken(String token) {
-    Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .put('accessToken', token);
+    Hive.box<dynamic>(
+      FlutterConConfig.instance!.values.hiveBox,
+    ).put('accessToken', token);
   }
 
   String? retrieveToken() {
-    return Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .get('accessToken') as String?;
+    return Hive.box<dynamic>(
+          FlutterConConfig.instance!.values.hiveBox,
+        ).get('accessToken')
+        as String?;
   }
 
   void persistUser(FlutterConUser user) {
-    Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .put('profile', user);
+    Hive.box<dynamic>(
+      FlutterConConfig.instance!.values.hiveBox,
+    ).put('profile', user);
   }
 
   FlutterConUser? retrieveUser() {
-    return Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .get('profile') as FlutterConUser?;
+    return Hive.box<dynamic>(
+          FlutterConConfig.instance!.values.hiveBox,
+        ).get('profile')
+        as FlutterConUser?;
   }
 
   void persistThemeMode(ThemeMode themeMode) {
-    Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-        .put('themeMode', themeMode.toString());
+    Hive.box<dynamic>(
+      FlutterConConfig.instance!.values.hiveBox,
+    ).put('themeMode', themeMode.toString());
   }
 
   ThemeMode retrieveThemeMode() {
     final themeMode =
-        Hive.box<dynamic>(FlutterConConfig.instance!.values.hiveBox)
-            .get('themeMode') as String?;
+        Hive.box<dynamic>(
+              FlutterConConfig.instance!.values.hiveBox,
+            ).get('themeMode')
+            as String?;
 
     return ThemeMode.values.firstWhere(
       (element) => element.toString() == themeMode,

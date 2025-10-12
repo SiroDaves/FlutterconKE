@@ -12,10 +12,7 @@ import 'package:fluttercon/features/feed/widgets/social_media_button.dart';
 import 'package:fluttercon/l10n/l10n.dart';
 
 class ShareSheet extends StatelessWidget {
-  const ShareSheet({
-    required this.feed,
-    super.key,
-  });
+  const ShareSheet({required this.feed, super.key});
 
   final LocalFeedEntry feed;
 
@@ -31,9 +28,7 @@ class ShareSheet extends StatelessWidget {
             state.mapOrNull(
               loaded: (_) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: AutoSizeText(l10n.postShared),
-                  ),
+                  SnackBar(content: AutoSizeText(l10n.postShared)),
                 );
               },
               error: (message) {
@@ -97,10 +92,10 @@ class ShareSheet extends StatelessWidget {
                         SocialMediaButton(
                           callBack: () async =>
                               context.read<ShareFeedPostCubit>().sharePost(
-                                    body: feed.body,
-                                    fileUrl: feed.image,
-                                    platform: SocialPlatform.twitter,
-                                  ),
+                                body: feed.body,
+                                fileUrl: feed.image,
+                                platform: SocialPlatform.twitter,
+                              ),
                           label: l10n.twitter,
                           iconPath: AppAssets.iconTwitter,
                         ),
@@ -108,10 +103,10 @@ class ShareSheet extends StatelessWidget {
                         SocialMediaButton(
                           callBack: () async =>
                               context.read<ShareFeedPostCubit>().sharePost(
-                                    body: feed.body,
-                                    fileUrl: feed.image,
-                                    platform: SocialPlatform.whatsapp,
-                                  ),
+                                body: feed.body,
+                                fileUrl: feed.image,
+                                platform: SocialPlatform.whatsapp,
+                              ),
                           label: l10n.whatsApp,
                           iconPath: AppAssets.iconWhatsApp,
                         ),
@@ -123,10 +118,10 @@ class ShareSheet extends StatelessWidget {
                         SocialMediaButton(
                           callBack: () async =>
                               context.read<ShareFeedPostCubit>().sharePost(
-                                    body: feed.body,
-                                    fileUrl: feed.image,
-                                    platform: SocialPlatform.telegram,
-                                  ),
+                                body: feed.body,
+                                fileUrl: feed.image,
+                                platform: SocialPlatform.telegram,
+                              ),
                           label: l10n.telegram,
                           iconPath: AppAssets.iconTelegram,
                         ),

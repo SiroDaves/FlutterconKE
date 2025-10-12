@@ -23,8 +23,10 @@ class _OrganisingTeamViewState extends State<OrganisingTeamView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    return BlocBuilder<FetchIndividualOrganisersCubit,
-        FetchIndividualOrganisersState>(
+    return BlocBuilder<
+      FetchIndividualOrganisersCubit,
+      FetchIndividualOrganisersState
+    >(
       builder: (context, state) => state.maybeWhen(
         loaded: (individualOrganisers) => SliverGrid.builder(
           itemCount: individualOrganisers.length,

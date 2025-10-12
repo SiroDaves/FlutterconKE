@@ -30,10 +30,7 @@ class SpeakerGridTile extends StatelessWidget {
                 maxWidth: MediaQuery.sizeOf(context).width / 4.5,
               ),
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: ThemeColors.tealColor,
-                  width: 2,
-                ),
+                border: Border.all(color: ThemeColors.tealColor, width: 2),
                 borderRadius: Corners.s12Border,
               ),
               child: ClipRRect(
@@ -50,10 +47,7 @@ class SpeakerGridTile extends StatelessWidget {
                   errorWidget: (_, __, ___) => const SizedBox(
                     height: 150,
                     width: double.infinity,
-                    child: Icon(
-                      Icons.error,
-                      color: Colors.red,
-                    ),
+                    child: Icon(Icons.error, color: Colors.red),
                   ),
                 ),
               ),
@@ -73,17 +67,16 @@ class SpeakerGridTile extends StatelessWidget {
               speaker.tagline ?? '',
               overflow: TextOverflow.clip,
               maxLines: 3,
-              style: TextStyle(
-                color: colorScheme.onSurface,
-              ),
+              style: TextStyle(color: colorScheme.onSurface),
               textAlign: TextAlign.center,
             ),
             const Spacer(),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => GoRouter.of(context)
-                    .push(FlutterConRouter.speakerDetailsRoute, extra: speaker),
+                onPressed: () => GoRouter.of(
+                  context,
+                ).push(FlutterConRouter.speakerDetailsRoute, extra: speaker),
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   shape: RoundedRectangleBorder(

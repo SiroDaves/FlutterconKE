@@ -28,7 +28,8 @@ class DaySessionsView extends StatelessWidget {
         final randomizeColor = Random().nextBool();
 
         return Padding(
-          padding: const EdgeInsets.only(left: 32) +
+          padding:
+              const EdgeInsets.only(left: 32) +
               const EdgeInsets.symmetric(vertical: 4),
           child: SizedBox(
             height: 25,
@@ -56,19 +57,12 @@ class DaySessionsView extends StatelessWidget {
         );
       },
       itemBuilder: (context, index) => GestureDetector(
-        onTap: () => GoRouter.of(context).push(
-          FlutterConRouter.sessionDetailsRoute,
-          extra: sessions[index],
-        ),
+        onTap: () => GoRouter.of(
+          context,
+        ).push(FlutterConRouter.sessionDetailsRoute, extra: sessions[index]),
         child: isCompactView
-            ? CompactViewCard(
-                session: sessions[index],
-                listIndex: index,
-              )
-            : ScheduleViewCard(
-                session: sessions[index],
-                listIndex: index,
-              ),
+            ? CompactViewCard(session: sessions[index], listIndex: index)
+            : ScheduleViewCard(session: sessions[index], listIndex: index),
       ),
     );
   }

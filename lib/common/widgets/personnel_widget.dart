@@ -31,10 +31,7 @@ class PersonnelWidget extends StatelessWidget {
               maxWidth: MediaQuery.sizeOf(context).width / 4.5,
             ),
             decoration: BoxDecoration(
-              border: Border.all(
-                color: ThemeColors.tealColor,
-                width: 2,
-              ),
+              border: Border.all(color: ThemeColors.tealColor, width: 2),
               borderRadius: Corners.s12Border,
             ),
             child: ClipRRect(
@@ -50,10 +47,7 @@ class PersonnelWidget extends StatelessWidget {
                 errorWidget: (_, __, ___) => const SizedBox(
                   height: 100,
                   width: double.infinity,
-                  child: Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  ),
+                  child: Icon(Icons.error, color: Colors.red),
                 ),
               ),
             ),
@@ -63,10 +57,7 @@ class PersonnelWidget extends StatelessWidget {
             child: AutoSizeText(
               name,
               maxLines: 1,
-              style: TextStyle(
-                fontSize: 12,
-                color: colorScheme.onSurface,
-              ),
+              style: TextStyle(fontSize: 12, color: colorScheme.onSurface),
             ),
           ),
           if (designation != null)

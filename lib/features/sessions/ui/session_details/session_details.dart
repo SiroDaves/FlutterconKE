@@ -20,10 +20,7 @@ import 'package:intl/intl.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class SessionDetailsPage extends StatelessWidget {
-  const SessionDetailsPage({
-    required this.session,
-    super.key,
-  });
+  const SessionDetailsPage({required this.session, super.key});
 
   final LocalSession session;
 
@@ -64,9 +61,7 @@ class SessionDetailsPage extends StatelessWidget {
                     const SizedBox(width: 8),
                     AutoSizeText(
                       l10n.speaker,
-                      style: const TextStyle(
-                        color: ThemeColors.orangeColor,
-                      ),
+                      style: const TextStyle(color: ThemeColors.orangeColor),
                     ),
                   ],
                 ),
@@ -88,17 +83,13 @@ class SessionDetailsPage extends StatelessWidget {
                         state.mapOrNull(
                           loaded: (loaded) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: AutoSizeText(loaded.message),
-                              ),
+                              SnackBar(content: AutoSizeText(loaded.message)),
                             );
                           },
                           error: (error) =>
                               ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: AutoSizeText(error.message),
-                            ),
-                          ),
+                                SnackBar(content: AutoSizeText(error.message)),
+                              ),
                         );
                       },
                       builder: (context, state) {
@@ -127,12 +118,12 @@ class SessionDetailsPage extends StatelessWidget {
                                 .read<BookmarkSessionCubit>()
                                 .bookmarkSession(sessionId: session.serverId)
                                 .then((_) {
-                              if (context.mounted) {
-                                context
-                                    .read<FetchGroupedSessionsCubit>()
-                                    .fetchGroupedSessions();
-                              }
-                            }),
+                                  if (context.mounted) {
+                                    context
+                                        .read<FetchGroupedSessionsCubit>()
+                                        .fetchGroupedSessions();
+                                  }
+                                }),
                             icon: Icon(
                               session.isBookmarked
                                   ? Icons.star_rate_rounded
@@ -162,10 +153,7 @@ class SessionDetailsPage extends StatelessWidget {
             const SizedBox(height: 16),
             AutoSizeText(
               session.description,
-              style: TextStyle(
-                fontSize: 18,
-                color: colorScheme.onSurface,
-              ),
+              style: TextStyle(fontSize: 18, color: colorScheme.onSurface),
             ),
             const SizedBox(height: 16),
             ClipRRect(
@@ -182,15 +170,12 @@ class SessionDetailsPage extends StatelessWidget {
                 errorWidget: (_, __, ___) => const SizedBox(
                   height: 150,
                   width: double.infinity,
-                  child: Icon(
-                    Icons.error,
-                    color: Colors.red,
-                  ),
+                  child: Icon(Icons.error, color: Colors.red),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            Divider(color: Colors.grey.withOpacity(.5)),
+            Divider(color: Colors.grey.withValues(alpha: .5)),
             const SizedBox(height: 16),
             if (session.rooms.isNotEmpty)
               AutoSizeText(
@@ -211,7 +196,7 @@ class SessionDetailsPage extends StatelessWidget {
               labelStyle: TextStyle(color: colorScheme.surface),
             ),
             const SizedBox(height: 16),
-            Divider(color: Colors.grey.withOpacity(.5)),
+            Divider(color: Colors.grey.withValues(alpha: .5)),
             const SizedBox(height: 16),
             if (session.speakers
                 .where((speaker) => speaker.twitter != null)
@@ -235,16 +220,11 @@ class SessionDetailsPage extends StatelessWidget {
           builder: (context, state) => state.maybeWhen(
             orElse: () => Transform.flip(
               flipX: true,
-              child: const Icon(
-                Icons.reply,
-                color: Colors.white,
-              ),
+              child: const Icon(Icons.reply, color: Colors.white),
             ),
             loading: () => const Padding(
               padding: EdgeInsets.all(16),
-              child: CircularProgressIndicator(
-                color: Colors.white,
-              ),
+              child: CircularProgressIndicator(color: Colors.white),
             ),
           ),
         ),
@@ -266,9 +246,7 @@ class SessionDetailsPage extends StatelessWidget {
                         state.mapOrNull(
                           loaded: (_) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: AutoSizeText(l10n.postShared),
-                              ),
+                              SnackBar(content: AutoSizeText(l10n.postShared)),
                             );
                           },
                           error: (message) {
@@ -280,9 +258,7 @@ class SessionDetailsPage extends StatelessWidget {
                       },
                       builder: (context, state) {
                         return Container(
-                          constraints: const BoxConstraints(
-                            minHeight: 250,
-                          ),
+                          constraints: const BoxConstraints(minHeight: 250),
                           child: state.maybeWhen(
                             loading: () => const Center(
                               child: CircularProgressIndicator(strokeWidth: 3),
@@ -318,9 +294,7 @@ class SessionDetailsPage extends StatelessWidget {
                                       ],
                                     ),
                                     InkWell(
-                                      onTap: () => Navigator.of(
-                                        context,
-                                      ).pop(),
+                                      onTap: () => Navigator.of(context).pop(),
                                       child: AutoSizeText(
                                         l10n.cancel.toUpperCase(),
                                         style: const TextStyle(
@@ -345,9 +319,7 @@ class SessionDetailsPage extends StatelessWidget {
                                       label: l10n.twitter,
                                       iconPath: AppAssets.iconTwitter,
                                     ),
-                                    const SizedBox(
-                                      width: 24,
-                                    ),
+                                    const SizedBox(width: 24),
                                     SocialMediaButton(
                                       callBack: () async => context
                                           .read<ShareFeedPostCubit>()
@@ -375,9 +347,7 @@ class SessionDetailsPage extends StatelessWidget {
                                       label: l10n.telegram,
                                       iconPath: AppAssets.iconTelegram,
                                     ),
-                                    const SizedBox(
-                                      width: 24,
-                                    ),
+                                    const SizedBox(width: 24),
                                     const Spacer(),
                                   ],
                                 ),
